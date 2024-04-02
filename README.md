@@ -1,6 +1,6 @@
 # Profiling Transcriptional Dysregulation of Tumor Stroma and Metastatic Lymph Node
 ## Overview
-This repository contains files required for performing analysis and data visualization, as well as outputs thereof, for a term project for the Spring 2024 semester of 20.440: Analysis of Biological Networks at the Massachusetts Institute of Technology. Currently, a principal components analysis is performed on single-cell RNA sequencing data , and a dimensionality reduction plot is produced based on the resultant principal components.
+This repository contains files required for performing analysis and data visualization, as well as outputs thereof, for a term project for the Spring 2024 semester of 20.440: Analysis of Biological Networks at the Massachusetts Institute of Technology. Currently, a lung adenocarcinoma single-cell RNA sequencing dataset is downloaded using an automated tool, principal components analysis is performed on the data, and a dimensionality reduction plot is produced based on the resultant principal components.
 
 This project uses the R Project (https://www.r-project.org/), Bioconductor (https://www.bioconductor.org/), TMExplorer (https://github.com/shooshtarilab/TMExplorer), and Seurat 5 (https://satijalab.org/seurat/).
 ### Full package literature citations
@@ -18,13 +18,13 @@ Accessed in repackaged format using TMExplorer: Christensen, E., Naidas, A., Che
 ## Folder structure
 The repository is divided into three subdirectories: code, data, and figures.
 
-The code subdirectory contains an RStudio project file to initialize an appropriate environment for running analyses in RStudio, as well as R scripts for running analyses and generating figures. There is presently a single R script, which downloads the dataset used for this project, uses Seurat to normalize the data and perform principal components analysis, and creates a dimensionality reduction plot using the principal components.
+The code subdirectory contains an RStudio project file to initialize an appropriate environment for running analyses in RStudio, as well as R scripts for running analyses and generating figures. There is presently a single R script, which downloads the dataset used for this project using TMExplorer, uses Seurat to normalize the data and perform principal components analysis, and creates a dimensionality reduction plot using the principal components.
 
 The data subdirectory is empty because TMExplorer is used to download data files directly during analysis. As such, no local data files are required nor accessed.
 
 The figures subdirectory contains the output figures generated during data analysis performed by the scripts contained within the code subdirectory. Currently, there is a single figure, which shows the results of dimensionality reduction via principal components analysis. Execution of scripts within the code subdirectory will recreate the figures within the figures subdirectory.
 ## Installation
-This project uses R, version 4.3.3 or later, which can be downloaded from https://cran.r-project.org/.
+This project uses R, version 4.3.3 or later, which can be downloaded from https://cran.r-project.org/. The R packages Bioconductor, TMExplorer, Seurat 5, ggplot2, and here are also required.
 
 Scripts for this project can optionally be run in the RStudio integrated development environment, available at https://posit.co/download/rstudio-desktop/.
 
