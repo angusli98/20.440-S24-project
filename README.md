@@ -28,7 +28,13 @@ This project uses R, version 4.3.3 or later, which can be downloaded from https:
 
 Scripts for this project can optionally be run in the RStudio integrated development environment, available at https://posit.co/download/rstudio-desktop/.
 
-An active Internet connection is required. 16 GB of RAM or greater are recommended.
+An active Internet connection is required. 16 GB of RAM or greater are recommended. Due to default memory allocation behavior on Mac, the virtual memory may have to be increased for the dataset to be loaded. To do this in the terminal, execute
+```
+cd ~
+touch .Renviron
+open .Renviron
+```
+Then, add `R_MAX_VSIZE=100Gb` into .Renviron.
 
 Packages required for this project are installed through Bioconductor, version 3.18 or later. To install Bioconductor, the following commands can be executed in the R console:
 ```
