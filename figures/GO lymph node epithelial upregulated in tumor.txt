@@ -1,0 +1,39 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20240226)
+Annotation Version and Release Date:	GO Ontology database DOI:  10.5281/zenodo.10536401 Released 2024-01-17
+Analyzed List:	upload_1 (Homo sapiens)
+Reference List:	Homo sapiens (all genes in database)
+Test Type:	FISHER
+Correction:	FDR
+GO biological process complete	Homo sapiens - REFLIST (20592)	upload_1 (233)	upload_1 (expected)	upload_1 (over/under)	upload_1 (fold Enrichment)	upload_1 (raw P-value)	upload_1 (FDR)
+tissue development (GO:0009888)	1769	51	20.02	+	2.55	3.57E-10	5.44E-06
+epithelium development (GO:0060429)	1111	36	12.57	+	2.86	1.16E-08	8.85E-05
+epidermal cell differentiation (GO:0009913)	212	15	2.40	+	6.25	2.05E-08	1.04E-04
+epithelial cell differentiation (GO:0030855)	643	25	7.28	+	3.44	8.52E-08	3.25E-04
+actin cytoskeleton organization (GO:0030036)	547	22	6.19	+	3.55	3.00E-07	9.15E-04
+epidermis development (GO:0008544)	346	17	3.92	+	4.34	4.66E-07	1.18E-03
+actin filament-based process (GO:0030029)	617	23	6.98	+	3.29	6.02E-07	1.31E-03
+anatomical structure development (GO:0048856)	5231	93	59.19	+	1.57	1.03E-06	1.74E-03
+developmental process (GO:0032502)	5739	100	64.94	+	1.54	9.66E-07	1.84E-03
+cytoskeleton organization (GO:0007010)	1255	34	14.20	+	2.39	2.38E-06	3.63E-03
+animal organ development (GO:0048513)	2869	59	32.46	+	1.82	3.59E-06	4.97E-03
+multicellular organism development (GO:0007275)	3964	74	44.85	+	1.65	5.08E-06	5.95E-03
+skin development (GO:0043588)	285	14	3.22	+	4.34	4.93E-06	6.26E-03
+keratinocyte differentiation (GO:0030216)	146	10	1.65	+	6.05	6.55E-06	7.14E-03
+cell motility (GO:0048870)	1081	30	12.23	+	2.45	8.55E-06	8.68E-03
+response to stimulus (GO:0050896)	8182	126	92.58	+	1.36	1.06E-05	1.01E-02
+regulation of plasma membrane bounded cell projection organization (GO:0120035)	656	21	7.42	+	2.83	1.95E-05	1.65E-02
+cell-cell signaling (GO:0007267)	1086	29	12.29	+	2.36	1.90E-05	1.70E-02
+anatomical structure morphogenesis (GO:0009653)	2239	47	25.33	+	1.86	2.82E-05	2.15E-02
+regulation of cell projection organization (GO:0031344)	672	21	7.60	+	2.76	2.77E-05	2.22E-02
+signaling (GO:0023052)	5109	86	57.81	+	1.49	3.49E-05	2.53E-02
+embryonic organ morphogenesis (GO:0048562)	304	13	3.44	+	3.78	4.60E-05	3.19E-02
+system development (GO:0048731)	3546	65	40.12	+	1.62	5.06E-05	3.35E-02
+regulation of cellular component organization (GO:0051128)	2442	49	27.63	+	1.77	5.82E-05	3.55E-02
+multicellular organismal process (GO:0032501)	6745	106	76.32	+	1.39	5.69E-05	3.61E-02
+cell communication (GO:0007154)	5262	87	59.54	+	1.46	7.67E-05	4.49E-02
+morphogenesis of an epithelium (GO:0002009)	463	16	5.24	+	3.05	8.11E-05	4.58E-02

@@ -1,0 +1,38 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20240226)
+Annotation Version and Release Date:	GO Ontology database DOI:  10.5281/zenodo.10536401 Released 2024-01-17
+Analyzed List:	upload_1 (Homo sapiens)
+Reference List:	Homo sapiens (all genes in database)
+Test Type:	FISHER
+Correction:	FDR
+GO biological process complete	Homo sapiens - REFLIST (20592)	upload_1 (162)	upload_1 (expected)	upload_1 (over/under)	upload_1 (fold Enrichment)	upload_1 (raw P-value)	upload_1 (FDR)
+cell adhesion (GO:0007155)	956	31	7.52	+	4.12	1.51E-11	2.30E-07
+cell junction organization (GO:0034330)	541	20	4.26	+	4.70	1.02E-08	7.78E-05
+cell-cell adhesion (GO:0098609)	544	19	4.28	+	4.44	6.01E-08	3.05E-04
+epithelial cell-cell adhesion (GO:0090136)	16	5	.13	+	39.72	1.15E-07	3.52E-04
+regulation of multicellular organismal process (GO:0051239)	2966	50	23.33	+	2.14	1.03E-07	3.92E-04
+regulation of multicellular organismal development (GO:2000026)	1404	30	11.05	+	2.72	4.78E-07	1.21E-03
+cell migration (GO:0016477)	901	23	7.09	+	3.24	6.40E-07	1.22E-03
+desmosome organization (GO:0002934)	10	4	.08	+	50.84	7.47E-07	1.27E-03
+regeneration (GO:0031099)	161	10	1.27	+	7.90	6.02E-07	1.31E-03
+regulation of developmental process (GO:0050793)	2448	42	19.26	+	2.18	9.70E-07	1.48E-03
+cell-cell junction organization (GO:0045216)	179	10	1.41	+	7.10	1.58E-06	2.01E-03
+anatomical structure morphogenesis (GO:0009653)	2239	39	17.61	+	2.21	1.46E-06	2.02E-03
+cell motility (GO:0048870)	1081	24	8.50	+	2.82	4.11E-06	4.82E-03
+positive regulation of developmental process (GO:0051094)	1337	27	10.52	+	2.57	5.61E-06	6.11E-03
+regulation of cell differentiation (GO:0045595)	1566	30	12.32	+	2.44	7.08E-06	7.19E-03
+bundle of His cell-Purkinje myocyte adhesion involved in cell communication (GO:0086073)	6	3	.05	+	63.56	9.39E-06	8.42E-03
+response to indole-3-methanol (GO:0071680)	6	3	.05	+	63.56	9.39E-06	8.95E-03
+adherens junction maintenance (GO:0034334)	7	3	.06	+	54.48	1.63E-05	1.31E-02
+cardiac muscle cell-cardiac muscle cell adhesion (GO:0086042)	7	3	.06	+	54.48	1.63E-05	1.38E-02
+biological process involved in interspecies interaction between organisms (GO:0044419)	1557	28	12.25	+	2.29	3.40E-05	2.59E-02
+cell junction maintenance (GO:0034331)	48	5	.38	+	13.24	3.69E-05	2.68E-02
+positive regulation of cell differentiation (GO:0045597)	871	19	6.85	+	2.77	5.73E-05	3.97E-02
+cellular response to reactive oxygen species (GO:0034614)	130	7	1.02	+	6.84	7.70E-05	4.89E-02
+response to reactive oxygen species (GO:0000302)	177	8	1.39	+	5.75	8.16E-05	4.97E-02
+viral life cycle (GO:0019058)	178	8	1.40	+	5.71	8.49E-05	4.98E-02
+establishment of endothelial intestinal barrier (GO:0090557)	11	3	.09	+	34.67	7.53E-05	4.99E-02
