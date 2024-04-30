@@ -23,7 +23,9 @@ res.seurat$origin[grepl('EBUS_49',names(Idents(res.seurat)))] <- "Advanced stage
 RNAv5 <- as(res.seurat[["originalexp"]], Class = "Assay5")
 resv5 <- CreateSeuratObject(RNAv5, meta.data=res.seurat@meta.data)
 rm(res.seurat,RNAv5)
-lymphFB <- PCAIntegrate(resv5, "lymph", "B lymphocytes")
-UMAPDp(lymphFB, "LN B.png")
-de_markers <- DEget(lymphFB, "Normal lymph node", "Metastatic lymph node")
-DEplot(de_markers, "DE lymph node B")
+for (tissue in c("Myeloid cells", "T/NK cells", "Epithelial cells", "Endothelial cells", "Fibroblasts", "B lymphocytes")) {
+  lymphFB <- PCAIntegrate(resv5, "lymph", tissue)
+  UMAPDp(lymphFB, sprintf("LN %s.png", gsub("/","+",tissue)))
+  de_markers <- DEget(lymphFB, "Normal lymph node", "Metastatic lymph node")
+  DEplot(de_markers, sprintf("DE lymph node %s", gsub("/","+",tissue)))
+}
