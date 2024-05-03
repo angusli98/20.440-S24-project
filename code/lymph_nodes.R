@@ -25,7 +25,7 @@ resv5 <- CreateSeuratObject(RNAv5, meta.data=res.seurat@meta.data)
 rm(res.seurat,RNAv5)
 for (tissue in c("Myeloid cells", "T/NK cells", "Epithelial cells", "Endothelial cells", "Fibroblasts", "B lymphocytes")) {
   lymphFB <- PCAIntegrate(resv5, "lymph", tissue)
-  UMAPDp(lymphFB, sprintf("LN %s.png", gsub("/","+",tissue)))
+  UMAPDp(lymphFB, tissue)
   de_markers <- DEget(lymphFB, "Normal lymph node", "Metastatic lymph node")
   DEplot(de_markers, sprintf("DE lymph node %s", gsub("/","+",tissue)))
 }

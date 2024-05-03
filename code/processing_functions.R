@@ -14,8 +14,11 @@ PCAIntegrate <- function(resv5,sample,celltype) {
   return(lymphFB)
 }
 UMAPDp <- function(lymphFB, fn) {
-  dp <- DimPlot(lymphFB, reduction = "umap", group.by=c("origin","label"))
-  ggsave(here("figures", fn), plot = dp)
+  dp <- DimPlot(lymphFB, reduction = "umap", group.by=c("origin","label"), combine = FALSE)
+  dp[[1]] <- dp[[1]] + ggtitle(sprintf("%s grouped by disease state", fn))
+  dp[[2]] <- dp[[2]] + ggtitle(sprintf("%s grouped by cell subtype", fn))
+  dp <- dp[[1]] + dp[[2]]
+  ggsave(here("figures", sprintf("LN %s.png", gsub("/","+",fn))), plot = dp, width = 13, height = 3.5)
   return(dp)
 }
 DEget <- function(lymphFB, ident1, ident2) {
@@ -29,7 +32,11 @@ DEplot <- function(de_markers, fn) {
   dep <- ggplot(de_markers, aes(avg_log2FC, -log10(p_val))) + geom_point(size = 0.5, alpha = 0.5) + theme_bw() +
     ylab("-log10(unadjusted p-value)") + geom_text_repel(aes(label = ifelse(p_val_adj < 0.01, gene,
                                                                             "")), colour = "red", size = 3)
-  ggsave(here("figures", sprintf("%s.png",fn)), plot = dep)
-  write.csv(de_markers, here("figures", sprintf("%s.csv",fn)))
+  significant <- de_markers[de_markers$p_val_adj < 0.01,]
+  upregulated <- significant[significant$pct.2 > significant$pct.1,]
+  downregulated <- significant[significant$pct.2 < significant$pct.1,]
+  ggsave(here("figures", sprintf("%s.png",fn)), plot = dep, width = 6, height = 4)
+  write.csv(upregulated, here("figures", sprintf("%s upregulated in tumor LN.csv",fn)))
+  write.csv(downregulated, here("figures", sprintf("%s downregulated in tumor LN.csv",fn)))
   return(dep)
 }
