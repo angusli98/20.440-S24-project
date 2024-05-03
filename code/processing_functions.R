@@ -28,15 +28,19 @@ DEget <- function(lymphFB, ident1, ident2) {
   de_markers$gene <- rownames(de_markers)
   return(de_markers)
 }
-DEplot <- function(de_markers, fn) {
+DEanalyze <- function(de_markers, fn) {
   dep <- ggplot(de_markers, aes(avg_log2FC, -log10(p_val))) + geom_point(size = 0.5, alpha = 0.5) + theme_bw() +
     ylab("-log10(unadjusted p-value)") + geom_text_repel(aes(label = ifelse(p_val_adj < 0.01, gene,
                                                                             "")), colour = "red", size = 3)
   significant <- de_markers[de_markers$p_val_adj < 0.01,]
   upregulated <- significant[significant$pct.2 > significant$pct.1,]
   downregulated <- significant[significant$pct.2 < significant$pct.1,]
-  ggsave(here("figures", sprintf("%s.png",fn)), plot = dep, width = 6, height = 4)
-  write.csv(upregulated, here("figures", sprintf("%s upregulated in tumor LN.csv",fn)))
-  write.csv(downregulated, here("figures", sprintf("%s downregulated in tumor LN.csv",fn)))
+  ggsave(here("figures", sprintf("DE lymph node %s.png", gsub("/","+",fn))), plot = dep, width = 6, height = 4)
+  write.csv(upregulated, here("figures", sprintf("%s upregulated in tumor LN.csv",gsub("/","+",fn))))
+  write.csv(downregulated, here("figures", sprintf("%s downregulated in tumor LN.csv",gsub("/","+",fn))))
+  pantherup <- rba_panther_enrich(genes = rownames(upregulated), organism = 9606, annot_dataset = "GO:0008150")
+  pantherdown <- rba_panther_enrich(genes = rownames(downregulated), organism = 9606, annot_dataset = "GO:0008150")
+  write.csv(pantherup$result, here("figures", sprintf("%s upregulated pathways in tumor LN.csv",gsub("/","+",fn))))
+  write.csv(downregulated$result, here("figures", sprintf("%s downregulated pathways in tumor LN.csv",gsub("/","+",fn))))
   return(dep)
 }
