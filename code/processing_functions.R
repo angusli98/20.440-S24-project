@@ -33,8 +33,8 @@ DEanalyze <- function(de_markers, fn) {
     ylab("-log10(unadjusted p-value)") + geom_text_repel(aes(label = ifelse(p_val_adj < 0.01, gene,"")),
       colour = "red", size = 3) + ggtitle(sprintf("Differentially expressed genes in metastatic lymph node %s", fn))
   significant <- de_markers[de_markers$p_val_adj < 0.01,]
-  upregulated <- significant[significant$pct.2 > significant$pct.1,]
-  downregulated <- significant[significant$pct.2 < significant$pct.1,]
+  upregulated <- significant[significant$pct.1 > significant$pct.2,]
+  downregulated <- significant[significant$pct.1 < significant$pct.2,]
   ggsave(here("figures", sprintf("DE lymph node %s.png", gsub("/","+",fn))), plot = dep, width = 7.5, height = 5)
   write.csv(upregulated, here("figures", sprintf("%s upregulated in tumor LN.csv",gsub("/","+",fn))))
   write.csv(downregulated, here("figures", sprintf("%s downregulated in tumor LN.csv",gsub("/","+",fn))))

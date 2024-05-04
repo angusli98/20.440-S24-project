@@ -27,6 +27,6 @@ rm(res.seurat,RNAv5)
 for (tissue in c("Myeloid cells", "T/NK cells", "Epithelial cells", "Endothelial cells", "Fibroblasts", "B lymphocytes")) {
   lymphFB <- PCAIntegrate(resv5, "lymph", tissue)
   UMAPDp(lymphFB, tissue)
-  de_markers <- DEget(lymphFB, "Normal lymph node", "Metastatic lymph node")
+  de_markers <- DEget(lymphFB, "Metastatic lymph node", "Normal lymph node")
   DEanalyze(de_markers, tissue)
 }
