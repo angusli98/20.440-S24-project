@@ -7,10 +7,11 @@ library(ROCR)
 res = TMExplorer::queryTME(geo_accession = "GSE131907", sparse = TRUE)
 data = counts(res[[1]])
 assign <- as.data.frame(cbind(colnames(data), res[[1]]$label))
-rm(res)
+#rm(res)
 rownames(assign) <- assign$V1
 assign <- subset(assign, select = -c(V1))
-assign <- dplyr::filter(assign, grepl("ndothelial", assign$V2))
+assign_choice <- "T/NK cells Treg"
+assign <- dplyr::filter(assign, grepl(assign_choice, assign$V2))
 
 data <- data[,grepl("LUNG", colnames(data))]
 data <- data[, colnames(data) %in% rownames(assign)]
@@ -51,7 +52,7 @@ pc_results <- as.data.frame(pc_results)
 pc_results$state <- lungs_sub$state
 
 top <- as.data.frame(get_pca_var(pc_lung_sub)$contrib)
-top <- top[order(top$Dim.1, decreasing = TRUE),]
+top <- top[order(top$Dim.13, decreasing = TRUE),]
 print(rownames(top)[1:5])
 
 pc_results <- pc_results %>% mutate(
@@ -65,13 +66,14 @@ split <- sample.split(pc_results, SplitRatio = 0.8)
 train_reg <- subset(pc_results, split == "TRUE")
 test_reg <- subset(pc_results, split == "FALSE")
 
-logistic_model <- glm(state ~ Dim.1 + Dim.2 + Dim.3 + Dim.4 + Dim.5 + Dim.6 + Dim.7 + Dim.8 + Dim.9 + Dim.10,
+logistic_model <- glm(state ~  Dim.1 + Dim.2 + Dim.3 + Dim.4 + Dim.5 + Dim.6 + Dim.7 + Dim.8 + Dim.9 + Dim.10
+                      + Dim.11 + Dim.12 + Dim.13 + Dim.14 + Dim.15 + Dim.16 + Dim.17 + Dim.18 + Dim.19 + Dim.20,
                       data = train_reg,
                       family = "binomial")
 summary(logistic_model)
 
 PredLR <- predict(logistic_model, test_reg, type = "response")
-lgPredObj <- prediction(PredLR, test_reg$state)
+lgPredObj <- prediction(PredLR[1:length(PredLR) - 1], test_reg$state[1:length(PredLR) - 1])
 lgPerfObj <- performance(lgPredObj, "tpr","fpr")
 AUC <- performance(lgPredObj, measure = "auc")
 AUC <- AUC@y.values[[1]]
